@@ -12,6 +12,7 @@ const apiClient = axios.create({
 export default {
   getBreeds: () => apiClient.get('/breeds'),
   getBreedImages: (breed: string) => apiClient.get(`/breeds/${breed}/images`),
+  getBreedImage: (breed: string) => apiClient.get(`/breeds/${breed}/image`),
   getFavorites: () => apiClient.get('/favorites'),
   addFavorite: (breed: string) => apiClient.post('/favorites', { breed }),
   removeFavorite: (breed: string) => apiClient.delete(`/favorites/${breed}`),
