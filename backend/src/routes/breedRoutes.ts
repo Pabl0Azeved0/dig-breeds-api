@@ -4,7 +4,7 @@ import { getAllBreeds, getBreedImages, getSingleBreedImage } from '../controller
 const router = Router();
 
 router.get('/breeds', getAllBreeds);
-router.get('/breeds/:breed/images', getBreedImages);
 router.get('/breeds/:breed/image', getSingleBreedImage);
+router.get('/breeds/:breed/images', getBreedImages);
 
 export default router;
