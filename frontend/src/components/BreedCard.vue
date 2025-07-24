@@ -23,7 +23,7 @@
             icon
             size="small"
             variant="text"
-            @click.stop="$emit('toggle-favorite', breed.name)"
+            @click.stop="emit('toggle-favorite', breed.name)"
             :color="isFavorite ? 'red' : 'white'"
           >
             <v-icon class="[text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
@@ -49,7 +49,7 @@ defineProps<{
   isFavorite: boolean;
 }>();
 
-defineEmits(['toggle-favorite']);
+const emit = defineEmits(['toggle-favorite']);
 
 const showImages = inject<(name: string) => void>('showBreedImages');
 </script>

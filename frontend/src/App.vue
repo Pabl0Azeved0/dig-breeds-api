@@ -23,7 +23,7 @@
             <v-tab value="all">All Breeds</v-tab>
             <v-tab value="favorites">
               My Favorites
-              <v-badge v-if="favorites.length > 0" color="white" :content="favorites.length" inline></v-badge>
+              <v-badge v-if="favorites.length > 0" color="white" :content="favorites.length" data-testid="favorites-badge" inline></v-badge>
             </v-tab>
           </v-tabs>
           <v-window v-if="!loading && !error" v-model="activeTab" style="height: 70vh; overflow-y: auto;">
@@ -41,7 +41,7 @@
       </v-container>
     </v-main>
 
-    <v-dialog v-model="isModalOpen" max-width="800px">
+    <v-dialog v-model="isModalOpen" max-width="800px" data-testid="breed-modal">
       <v-card rounded="lg" class="pa-0">
 
         <div class="d-flex align-center pa-1">
