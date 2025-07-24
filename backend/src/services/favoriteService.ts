@@ -16,12 +16,10 @@ const readFavorites = (): string[] => {
 
   const data = fs.readFileSync(favoritesFilePath, 'utf-8');
 
-  // **THE FIX**: Check if the file is empty before parsing
   if (data.trim() === '') {
     return [];
   }
 
-  // **Best Practice**: Gracefully handle malformed JSON
   try {
     return JSON.parse(data);
   } catch (error) {

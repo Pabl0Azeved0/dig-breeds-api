@@ -30,7 +30,6 @@ defineProps<{
   favorites: string[];
 }>();
 
-// **FIX #2**: The grid no longer needs to know about the 'show-images' event at all.
 defineEmits(['toggle-favorite']);
 
 const loadCardImage = async (breed: Breed) => {

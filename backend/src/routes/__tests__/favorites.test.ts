@@ -3,7 +3,6 @@ import app from '../../app';
 import fs from 'fs';
 import path from 'path';
 
-// **THE FIX**: Corrected the path to the favorites.json file
 const favoritesFilePath = path.join(__dirname, '../../../data/favorites.json');
 
 // This cleanup function will now work correctly
