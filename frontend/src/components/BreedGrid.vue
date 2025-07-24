@@ -1,30 +1,37 @@
 <template>
-  <div class="grid grid-cols-4 gap-4">
-    <BreedCard
+  <v-row dense>
+    <v-col
       v-for="breed in breeds"
       :key="breed.name"
-      :breed="breed"
-      :is-favorite="favorites.includes(breed.name)"
-      @toggle-favorite="$emit('toggle-favorite', breed.name)"
-      @show-images="$emit('show-images', breed.name)"
-      v-lazy-load="() => loadCardImage(breed)"
-    />
-  </div>
+      cols="12"
+      sm="6"
+      md="4"
+      lg="3"
+    >
+      <BreedCard
+        :breed="breed"
+        :is-favorite="favorites.includes(breed.name)"
+        @toggle-favorite="$emit('toggle-favorite', breed.name)"
+        v-lazy-load="() => loadCardImage(breed)"
+        class="h-100"
+      />
+    </v-col>
+  </v-row>
 </template>
 
 <script setup lang="ts">
-// The script section remains the same.
 import BreedCard from './BreedCard.vue';
 import api from '../services/api';
 
 interface Breed { name: string; imageUrl: string | null; }
 
-const props = defineProps<{
+defineProps<{
   breeds: Breed[];
   favorites: string[];
 }>();
 
-defineEmits(['toggle-favorite', 'show-images']);
+// **FIX #2**: The grid no longer needs to know about the 'show-images' event at all.
+defineEmits(['toggle-favorite']);
 
 const loadCardImage = async (breed: Breed) => {
   if (breed.imageUrl) return;
