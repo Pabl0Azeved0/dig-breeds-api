@@ -1,4 +1,5 @@
 import './assets/main.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -12,6 +13,17 @@ import * as directives from 'vuetify/directives'
 const vuetify = createVuetify({
   components,
   directives,
+  theme: {
+    themes: {
+      light: {
+        dark: false,
+        colors: {
+          primary: '#34495E',
+          secondary: '#5D6D7E',
+        }
+      }
+    }
+  }
 })
 
 const app = createApp(App)
